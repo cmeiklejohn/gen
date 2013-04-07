@@ -128,6 +128,9 @@ $(document).ready(function() {
         /** Stash the results in the form */
         $("#results").val(imageResults.join(','));
 
+        /** Stash the baseUrl in the form */
+        $("#baseurl").val(baseurl);
+
         /** Submit the form to mturk. */
         $("#mturk").submit();
     });

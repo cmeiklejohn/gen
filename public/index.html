@@ -32,7 +32,8 @@
         </div>
         <div id="button-panel">
             <form id="mturk" action="https://workersandbox.mturk.com/mturk/externalSubmit" method="POST">
-              <input type="hidden" id="results" value=""/>
+              <input type="hidden" id="results" name="results" value=""/>
+              <input type="hidden" id="baseurl" name="baseurl" value=""/>
               <button id="clear">Reset</button>
               <button id="commit" disabled="disabled">Submit</button>
               <div id="result"></div>
