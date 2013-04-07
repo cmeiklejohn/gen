@@ -34,7 +34,12 @@ $(document).ready(function() {
     /* Get query parameters */
     var queryParameters = getUrlVars();
 
-    console.log(queryParameters);
+    /* Given an assignmentId, add to the form. */
+    var assignmentId = queryParameters.assignmentId;
+
+    if(assignmentId) {
+      $("#mturk").append($('<input/>').attr('type', 'hidden').attr('name', 'assignmentId').val(assignmentId));
+    }
 
     $("#cluster").
       css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
