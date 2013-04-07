@@ -36,7 +36,7 @@ $(document).ready(function() {
     var baseurl;
 
     if(baseUrlParam) {
-      baseurl = baseUrlParam;
+      baseurl = decodeURIComponent(baseUrlParam);
     } else {
       baseurl = "http://cs.brown.edu/~gen/nn_patches/MITinsidecity/cluster_imgs/cluster1/";
     }
