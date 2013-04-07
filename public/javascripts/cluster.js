@@ -5,30 +5,6 @@
 
 // Just need to change this so that the get request sets the correct path
 //"http://graphics.cs.cmu.edu/projects/whatMakesParis/result/alldiscpatchimg[]/";
-var baseurl = "http://cs.brown.edu/~gen/nn_patches/MITinsidecity/cluster_imgs/cluster1/"; 
-index1 = 1;
-indexn = 23733;
-num_patches = 25;
-row_width = 5;
-num_rows = num_patches / row_width;
-
-patches = []
-cluster_patches = [];
-
-var index = 1;
-for (var i = 0; i < num_rows; i++) {
-    row = []
-    for (var j = 0; j < row_width; j++) {
-        if (index <= num_patches) {
-            // random
-            var patch_num = index;//Math.floor(Math.random() * (indexn - index1 + 1)) + index1;
-            row.push(baseurl + patch_num + '.jpg');
-            index++;
-        }
-    }
-    patches.push(row);
-}
-
 $(document).ready(function() {
 
     /* Get query parameters */
@@ -53,6 +29,39 @@ $(document).ready(function() {
 
     if(hitId) {
       $("#mturk").append($('<input/>').attr('type', 'hidden').attr('name', 'hitId').val(hitId));
+    }
+
+    /* Given a directory, use it. */
+    var baseUrlParam = queryParameters.baseUrl;
+    var baseurl;
+
+    if(baseUrlParam) {
+      baseurl = baseUrlParam;
+    } else {
+      baseurl = "http://cs.brown.edu/~gen/nn_patches/MITinsidecity/cluster_imgs/cluster1/";
+    }
+
+    index1 = 1;
+    indexn = 23733;
+    num_patches = 25;
+    row_width = 5;
+    num_rows = num_patches / row_width;
+
+    patches = []
+    cluster_patches = [];
+
+    var index = 1;
+    for (var i = 0; i < num_rows; i++) {
+        row = []
+        for (var j = 0; j < row_width; j++) {
+            if (index <= num_patches) {
+                // random
+                var patch_num = index;//Math.floor(Math.random() * (indexn - index1 + 1)) + index1;
+                row.push(baseurl + patch_num + '.jpg');
+                index++;
+            }
+        }
+        patches.push(row);
     }
 
     $("#cluster").
