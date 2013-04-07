@@ -30,8 +30,16 @@ for (var i = 0; i < num_rows; i++) {
 }
 
 $(document).ready(function() {
-    $("#cluster").css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
-    $("#gallery").css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
+
+    /* Get query parameters */
+    var queryParameters = getUrlVars();
+
+    console.log(queryParameters);
+
+    $("#cluster").
+      css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
+    $("#gallery").
+      css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
 
     var gallery = $("#gallery-container");
     for (var i = 0; i < patches.length; i++) {
@@ -155,4 +163,24 @@ function reflow() {
     } else {
         $("#submit").attr('disabled', 'disabled');        
     }
+}
+
+/**
+ * Return JavaScript object of query parameters
+ *
+ * From:
+ * http://stackoverflow.com/questions/4656843/jquery-get-querystring-from-url
+ */
+function getUrlVars()
+{
+    var vars = [], hash;
+    var hashes = window.location.href.
+                 slice(window.location.href.indexOf('?') + 1).split('&');
+
+    for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars[hash[0]] = hash[1];
+    }
+
+    return vars;
 }
