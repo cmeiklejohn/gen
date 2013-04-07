@@ -41,6 +41,20 @@ $(document).ready(function() {
       $("#mturk").append($('<input/>').attr('type', 'hidden').attr('name', 'assignmentId').val(assignmentId));
     }
 
+    /* Given an workerId, add to the form. */
+    var workerId = queryParameters.workerId;
+
+    if(workerId) {
+      $("#mturk").append($('<input/>').attr('type', 'hidden').attr('name', 'workerId').val(workerId));
+    }
+
+    /* Given an hitId, add to the form. */
+    var hitId = queryParameters.hitId;
+
+    if(hitId) {
+      $("#mturk").append($('<input/>').attr('type', 'hidden').attr('name', 'hitId').val(hitId));
+    }
+
     $("#cluster").
       css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
     $("#gallery").
