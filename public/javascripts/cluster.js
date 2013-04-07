@@ -87,12 +87,19 @@ $(document).ready(function() {
         });
     });
 
-    $("#submit").click(function () {
+    $("#submit").click(function (ev) {
+        ev.preventDefault();
+
+        var imageResults = [];
+
         $("#result").empty().append("<h4>Result</h4>");
         for (var index = 0; index < cluster_patches.length; index++) {
             var i = cluster_patches[index][0], j = cluster_patches[index][1];
+            imageResults.push(patches[i][j]);
             $("#result").append('<img src="' + patches[i][j] + '" width="50" height="50" style="padding-right: 5px;"/>');
         }
+
+        $("#results").val(imageResults.join(','));
     });
 });
 
