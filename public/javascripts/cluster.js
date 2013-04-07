@@ -171,7 +171,7 @@ function reflow() {
         for (var j = 0; j < row_width; j++) {
             if (index < cluster_patches.length) {
                 var pi = cluster_patches[index][0], pj = cluster_patches[index][1];
-                cluster_row.append('<li id="cluster,'+pi+','+pj+'" class="image-patch"><img src="' + patches[pi][pj] + '" width="80" height="80" /> </li>');            
+                cluster_row.append('<li id="cluster,'+pi+','+pj+'" class="image-patch"><img src="' + patches[pi][pj] + '" width="80" height="80" /> </li>');
             }
             index++;
         }
@@ -206,7 +206,7 @@ function reflow() {
     if (cluster_patches.length >= 5) {
         $("#commit").removeAttr('disabled');
     } else {
-        $("#commit").attr('disabled', 'disabled');        
+        $("#commit").attr('disabled', 'disabled');
     }
 }
 
