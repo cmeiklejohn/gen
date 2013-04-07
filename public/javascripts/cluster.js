@@ -102,7 +102,7 @@ function addToCluster(obj) {
 
     $(document.getElementById('gallery,'+i+','+j)).css('visibility','hidden');
     cluster_patches.push([i,j]);
-    
+
     reflow();
 }
 
@@ -116,7 +116,7 @@ function removeFromCluster(obj) {
             cluster_patches.splice(index, 1);
         }
     }
-    
+
     reflow();
 }
 
