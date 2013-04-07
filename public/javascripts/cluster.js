@@ -65,9 +65,9 @@ $(document).ready(function() {
     }
 
     $("#cluster").
-      css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
+      css('min-height', 90 * num_rows + 45).css('min-width', 90 * row_width + 30);
     $("#gallery").
-      css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
+      css('min-height', 90 * num_rows + 45).css('min-width', 90 * row_width + 30);
 
     var gallery = $("#gallery-container");
     for (var i = 0; i < patches.length; i++) {
@@ -103,7 +103,8 @@ $(document).ready(function() {
         addToCluster(this);
     });
 
-    $("#clear").click(function() {
+    $("#clear").click(function(ev) {
+	ev.preventDefault();
         $("#result").empty();
         $("#results").val('');
         $("#cluster .image-patch").each(function() {
@@ -167,7 +168,8 @@ function reflow() {
     var cluster_rows = cluster_patches.length / row_width;
     var index = 0;
     for (var i = 0; i < cluster_rows; i++) {
-        var cluster_row = cluster.append('<ul id="clusterrow' + i + '" class="patch-row"> </ul>');
+        cluster.append('<ul id="clusterrow' + i + '" class="patch-row"> </ul>');
+	var cluster_row = $('#clusterrow' + i);
         for (var j = 0; j < row_width; j++) {
             if (index < cluster_patches.length) {
                 var pi = cluster_patches[index][0], pj = cluster_patches[index][1];
@@ -205,8 +207,11 @@ function reflow() {
 
     if (cluster_patches.length >= 5) {
         $("#commit").removeAttr('disabled');
+        $("#commit-warning").html("");
     } else {
         $("#commit").attr('disabled', 'disabled');
+        $("#commit-warning").html("Please click " + 
+		(5 - (cluster_patches.length ? cluster_patches.length : 0)) + " more images.");
     }
 }
 

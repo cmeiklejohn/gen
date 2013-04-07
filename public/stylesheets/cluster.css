@@ -1,12 +1,51 @@
 .main-content {
-    width: 100%;
     font-family: sans-serif;
     font-size: smaller;
+}
+
+h2 {
+    margin-left: 10px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    margin-left: 10px;
+}
+
+h3.no-bottom {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .patch-container {
     display: table;
     vertical-align: center;
+}
+
+#gallery-container {
+        padding: 2px;
+        border: 1px solid black;
+        background: #b8c6df; /* Old browsers */
+	background: -moz-linear-gradient(top,  #b8c6df 0%, #6d88b7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b8c6df), color-stop(100%,#6d88b7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #b8c6df 0%,#6d88b7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8c6df', endColorstr='#6d88b7',GradientType=0 ); /* IE6-9 */
+}
+
+button {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#commit-warning {
+    font-size: 16px;
+    font-weight: bold;
+    color: red; 
+    padding: 0px;
 }
 
 #cluster {
@@ -30,21 +69,17 @@
 
 .image-patch {
     display: table-cell;
-    padding: 8px;
+    padding-top: 5px; 
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .image-patch img {
-    border-style: solid;
-    border-color: gray;
-    border-width: 2px;
-    margin: -2px;    
+    border: 1px solid #000;
 }
 
 .image-patch .patch-hover {
-    border-style: solid;
-    border-color: red;
-    border-width: 3px;
-    margin: -3px;
+    border: 1px solid red;
 }
 
 .patch-row {
@@ -53,6 +88,6 @@
 
 #button-panel {
     padding-top: 10px;
-    float: left;
+    margin-left: 10px;
     clear: left;
 }
