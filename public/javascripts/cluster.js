@@ -82,14 +82,17 @@ $(document).ready(function() {
 
     $("#clear").click(function() {
         $("#result").empty();
+        $("#results").val('');
         $("#cluster .image-patch").each(function() {
             removeFromCluster(this);
         });
     });
 
-    $("#submit").click(function (ev) {
+    $("#commit").click(function (ev) {
+        /** Prevent form submission */
         ev.preventDefault();
 
+        /** Aggregate results */
         var imageResults = [];
 
         $("#result").empty().append("<h4>Result</h4>");
@@ -99,7 +102,11 @@ $(document).ready(function() {
             $("#result").append('<img src="' + patches[i][j] + '" width="50" height="50" style="padding-right: 5px;"/>');
         }
 
+        /** Stash the results in the form */
         $("#results").val(imageResults.join(','));
+
+        /** Submit the form to mturk. */
+        $("#mturk").submit();
     });
 });
 
@@ -171,9 +178,9 @@ function reflow() {
     });
 
     if (cluster_patches.length >= 5) {
-        $("#submit").removeAttr('disabled');
+        $("#commit").removeAttr('disabled');
     } else {
-        $("#submit").attr('disabled', 'disabled');        
+        $("#commit").attr('disabled', 'disabled');        
     }
 }
 
