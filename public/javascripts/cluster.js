@@ -68,7 +68,6 @@ $(document).ready(function() {
       css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
     $("#gallery").
       css('min-height', 90 * num_rows + 95).css('min-width', 90 * row_width + 30);
-    $("#mturk").append("<div>"+ baseurl + "</div>");
 
     var gallery = $("#gallery-container");
     for (var i = 0; i < patches.length; i++) {
