@@ -210,7 +210,7 @@ function reflow() {
         $("#commit-warning").html("");
     } else {
         $("#commit").attr('disabled', 'disabled');
-        $("#commit-warning").html("Please click " + 
+        $("#commit-warning").html("Please click at least " + 
 		(5 - (cluster_patches.length ? cluster_patches.length : 0)) + " more images.");
     }
 }
